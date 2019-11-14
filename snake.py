@@ -1,15 +1,19 @@
 import bottle
 import json
+import random
+
+ # https://docs.battlesnake.com/snake-api#tag/endpoints/
 
 @bottle.post("/start")
 def start():
     print("start")
     js = bottle.request.json
     print(js)
+
     return {
         "color": "#ff00ff",
-        "headType": "bendr",
-        "tailType": "pixel"
+        "headType": "pixel",  # "beluga" "bendr" "dead" "evil" "fang" "pixel" "regular" "safe" "sand-worm" "shades" "silly" "smile" "tongue" 
+        "tailType": "pixel" # "block-bum" "bolt" "curled" "fat-rattle" "freckled" "hook" "pixel" "regular" "round-bum" "sharp" "skinny" "small-rattle" 
     }
 
 @bottle.post("/move")
@@ -17,6 +21,9 @@ def move():
     print("move")
     js = bottle.request.json
     print(js)
+    return {
+        "move": random.choice(["up", "down", "left", "right"])
+    }
 
 @bottle.post("/end")
 def end():
