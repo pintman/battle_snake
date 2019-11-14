@@ -1,5 +1,7 @@
 VERSION=0.2.23
-URL=https://github.com/battlesnakeio/engine/releases/download/v$(VERSION)/engine_$(VERSION)_Linux_x86_64.tar.gz
+PLATFORM=Linux
+#PLATFORM=Darwin
+URL=https://github.com/battlesnakeio/engine/releases/download/v$(VERSION)/engine_$(VERSION)_$(PLATFORM)_x86_64.tar.gz
 
 start_engine: release
 	cd release; ./engine server
