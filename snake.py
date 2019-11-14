@@ -40,6 +40,6 @@ if __name__ == '__main__':
         print("python snake.py HOST PORT")
         sys.exit()
 
-    host, port = sys.argv[1:]
+    host, port = sys.argv[1:3]
     main(host, int(port))
     
