@@ -16,3 +16,8 @@ release: release.tar.gz
 
 release.tar.gz:
 	wget -O release.tar.gz $(URL)
+
+venv: requirements.txt
+	python3 -m venv venv
+	./venv/bin/python -m pip install --upgrade pip
+	./venv/bin/python -m pip install -r requirements.txt
