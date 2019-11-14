@@ -8,7 +8,9 @@ create_game: release
 	# Create game and return the game id
 	./release/engine create --config snake-config.json | cut -d ':' -f 2 | cut -d '"' -f 2
 	
-release:
-	wget -O release.tar.gz $(URL)
+release: release.tar.gz
 	mkdir release
 	tar -C release -xzf release.tar.gz
+
+release.tar.gz:
+	wget -O release.tar.gz $(URL)
